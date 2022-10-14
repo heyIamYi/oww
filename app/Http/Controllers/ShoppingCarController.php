@@ -14,75 +14,6 @@ use Illuminate\Support\Facades\DB;
 
 class ShoppingCarController extends Controller
 {
-    //購物網站首頁及購物車頁面
-    public function index()
-    {
-        $data1 = DB::table('news')
-            ->orderby('id', 'desc')
-            ->take(3)
-            ->get();
-
-        // 將數值 $data1 回傳至view.index的變數 $data 中
-        return view('index', compact('data1'));
-
-        // compact也可達到一樣的效果
-        // return view('index',compact('data'));
-    }
-
-    //登入頁面
-    public function login()
-    {
-        return view('login');
-    }
-
-    //購物網站留言板
-    public function comment()
-    {
-        $comments = Comment::orderby('id', 'desc')->get();
-
-        return view('comment.comment', compact('comments'));
-    }
-
-    public function save_comment(Request $request)
-    {
-        Comment::create([
-            'title' => $request->title,
-            'name' => $request->name,
-            'content' => $request->content,
-        ]);
-
-        return redirect('/comment');
-    }
-
-    public function edit_comment($id)
-    {
-        $comment = DB::table('comments')->find($id);
-        // dd($comment);
-        return view('comment.edit', compact('comment'));
-    }
-
-    public function update_comment($id, Request $request)
-    {
-        DB::table('comments')
-            ->where('id', $id)
-            ->update([
-                'title' => $request->title,
-                'name' => $request->name,
-                'content' => $request->content,
-            ]);
-
-        return redirect('/comment');
-    }
-
-    public function delete_comment($target)
-    {
-        $delete = DB::table('comments')
-            ->where('id', $target)
-            ->delete();
-
-        return redirect('/comment');
-    }
-
 
     // 新增至購物車頁面
 
@@ -135,10 +66,10 @@ class ShoppingCarController extends Controller
         $product = product::get();
 
         $ShoppingCart = ShoppingCart::where('user_id', Auth::user()->id)->get();
+
+
         // dd($ShoppingCart);
 
-
-        // dd($collection);
 
         $total_price = 0;
         $total_qty = 0;
@@ -232,7 +163,6 @@ class ShoppingCarController extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
-
             'pay_way' => session()->get('pay'),
             'shipping_way' => session()->get('deliver'),
 

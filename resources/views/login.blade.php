@@ -10,15 +10,11 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/login.css">
 
-
-    {{-- google 客戶端登入API  --}}
-
-
-    {{-- <script src="https://apis.google.com/js/platform.js" async defer></script> --}}
-
-    {{-- <script src="https://apis.google.com/js/platform.js" async="async"></script> --}}
-    {{-- <meta name="google-signin-client_id" --}}
-        {{-- content="504504813723-pdjup76aefhscls8ulm2usl5q68io3u6.apps.googleusercontent.com" /> --}}
+    {{-- Facebook SDK --}}
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v15.0&appId=1157240718475524&autoLogAppEvents=1"
+        nonce="KHHps9pf"></script>
 
 </head>
 
@@ -48,9 +44,11 @@
                     </div>
                     <!-- SVG超連結 -->
                     <div class="svg-box d-flex">
-                        <div class="box-top d-flex ">
-                                <a href="{{ route ('googlelogin')}}">google登入</a>
+                        <div class="box-top d-flex" style="flex-direction: column">
+                            <a href="{{ route('googlelogin') }}">google登入</a>
+                            <a href="{{ route('facebooklogin') }}">facebook登入</a>
                         </div>
+
                     </div>
                     <!-- 使用其他方式登入 -->
                     <div class="box-bot d-flex">
@@ -93,45 +91,6 @@
             </div>
         </div>
     </main>
-    {{-- <script>
-        /*
-         * Create form to request access token from Google's OAuth 2.0 server.
-         */
-        function oauthSignIn() {
-            // Google's OAuth 2.0 endpoint for requesting an access token
-            var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
-
-            // Create <form> element to submit parameters to OAuth 2.0 endpoint.
-            var form = document.createElement('form');
-            form.setAttribute('method', 'GET'); // Send as a GET request.
-            form.setAttribute('action', oauth2Endpoint);
-
-            // Parameters to pass to OAuth 2.0 endpoint.
-            var params = {
-                'client_id': '504504813723-pdjup76aefhscls8ulm2usl5q68io3u6.apps.googleusercontent.com',
-
-            //此處URL需使用Ngrok.io以及在Google申請的帳號裡面修改相關授權網域.10/04
-                'redirect_uri': 'https://ab93-118-233-192-185.jp.ngrok.io/googleapi',
-                'response_type': 'token',
-                'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
-                'include_granted_scopes': 'true',
-                'state': 'pass-through value'
-            };
-
-            // Add form parameters as hidden input values.
-            for (var p in params) {
-                var input = document.createElement('input');
-                input.setAttribute('type', 'hidden');
-                input.setAttribute('name', p);
-                input.setAttribute('value', params[p]);
-                form.appendChild(input);
-            }
-
-            // Add form to page and submit it to open the OAuth 2.0 endpoint.
-            document.body.appendChild(form);
-            form.submit();
-        }
-    </script> --}}
 
 </body>
 

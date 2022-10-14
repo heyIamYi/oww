@@ -7,6 +7,30 @@ use Illuminate\Support\Facades\DB;
 
 class HomepageController extends Controller
 {
+        //購物網站首頁及購物車頁面
+        public function index()
+        {
+            $data1 = DB::table('news')
+                ->orderby('id', 'desc')
+                ->take(3)
+                ->get();
+
+            // 將數值 $data1 回傳至view.index的變數 $data 中
+            return view('index', compact('data1'));
+
+            // compact也可達到一樣的效果
+            // return view('index',compact('data'));
+        }
+
+        //登入頁面
+        public function login()
+        {
+            return view('login');
+        }
+
+
+
+
     // 首頁的圖片
     public function eightcard()
     {
@@ -39,4 +63,6 @@ class HomepageController extends Controller
             compact('eightcardf4', 'eightcardb4', 'bigstore', 'data1')
         );
     }
+
+
 }

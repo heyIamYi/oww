@@ -63,7 +63,7 @@ class OrderController extends Controller
             'ChoosePayment' => 'Credit',
             'EncryptType' => 1,
 
-            // 付款完成回傳資料
+            // 付款完成回傳資料與資料處理
             'ReturnURL' => 'https://127.0.0.1:8000/show_order/' . $id,
             'PeriodReturnURL' => 'https://127.0.0.1:8000/show_order/' . $id,
 

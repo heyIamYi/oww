@@ -100,7 +100,7 @@
 
                                 <div class="oo">
                                     <div class="first-value">
-                                        {{mb_substr($news->title , 0, 1)}}
+                                        {{mb_substr($news->title , 0, 1)}}c
                                     </div>
                                 </div>
 
@@ -131,6 +131,7 @@
                 </div>
             </div>
         </div>
+{{-- 暫時用不到 --}}
         <!-- 商品展示照區塊 -->
         {{-- <div id="section3" class="goods-photo container-fluid d-flex">
             <!-- 上半部展示照標題與副標題 -->
@@ -567,5 +568,8 @@
             keyboard: true,
         });
     </script>
+
+
+
 
 @endsection

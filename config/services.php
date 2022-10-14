@@ -39,4 +39,10 @@ return [
         'redirect' => 'http://127.0.0.1:8000/google/callback',
     ],
 
+    'facebook' => [
+        'client_id' => env('facebook_CLIENT_ID'),
+        'client_secret' => env('facebook_CLIENT_SECRET'),
+        'redirect' => 'http://localhost:8000/facebook/callback',
+    ],
+
 ];

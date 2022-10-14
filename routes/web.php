@@ -8,6 +8,7 @@ use App\Http\Controllers\OrderManageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShoppingCarController;
 use App\Http\Controllers\SocialUserController;
+use App\Http\Controllers\CommentController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -45,8 +46,12 @@ require __DIR__ . '/auth.php';
 |
  */
 
+/**
+ * 購物車路由
+ */
+
 //購物網站首頁
-Route::get('/', [ShoppingCarController::class, 'index']);
+Route::get('/', [HomepageController::class, 'index']);
 
 //購物車第一頁
 Route::get('/checkedout1', [ShoppingCarController::class, 'checkedout1']);
@@ -63,26 +68,27 @@ Route::post('/checkedout4', [ShoppingCarController::class, 'checkedout4']);
 //導覽頁面
 Route::get('/show_order/{id}', [ShoppingCarController::class, 'show_order']);
 
-//購物車留言板
+/**
+ * 購物車留言板CRUD
+ */
 //群組化
-
 Route::prefix('/comment')->group(function () {
-    Route::get('/', [ShoppingCarController::class, 'comment']); //首頁
-    Route::get('/save', [ShoppingCarController::class, 'save_comment']); //儲存
+    Route::get('/', [CommentController::class, 'comment']); //首頁
+    Route::get('/save', [CommentController::class, 'save_comment']); //儲存
     Route::get('/edit/{target}', [
-        ShoppingCarController::class,
+        CommentController::class,
         'edit_comment',
     ]); //編輯
-    Route::get('/{target}', [ShoppingCarController::class, 'update_comment']); //更新
+    Route::get('/{target}', [CommentController::class, 'update_comment']); //更新
     Route::get('/delete/{target}', [
-        ShoppingCarController::class,
+        CommentController::class,
         'delete_comment',
     ]); //刪除
 });
 
-//使用者管理頁面
-//群組化
-
+/**
+ * 使用者管理頁面CRUD
+ */
 Route::prefix('/account')
     ->middleware(['auth'])
     ->group(function () {
@@ -94,8 +100,9 @@ Route::prefix('/account')
         Route::post('/delete/{id}', [AccountController::class, 'destroy']);
     });
 
-//BANNER頁面
-//群組化
+/**
+ * BANNER頁面CRUD
+ */
 
 Route::prefix('/banner')
     ->middleware(['auth'])
@@ -108,8 +115,9 @@ Route::prefix('/banner')
         Route::post('/delete/{id}', [BannerController::class, 'destroy']);
     });
 
-//商品頁面
-//群組化
+/**
+ *商品頁面CRUD
+ */
 
 Route::prefix('/product')
     ->middleware(['auth'])
@@ -126,45 +134,66 @@ Route::prefix('/product')
         ]);
     });
 
-// 商品回傳首頁
-Route::get('/', [HomepageController::class, 'eightcard']);
-
-// // 將商品加入購物車
-// Route::post('/ShoppingCart', [ShoppingCarController::class, 'add_carts']);
-
-//商品詳情
-Route::get('/product/productinfo/{id}', [
-    ProductController::class,
-    'productinfo',
-]);
-
-Route::post('/add_to_cart', [ShoppingCarController::class, 'add_cart']);
-
-//購物車訂單
-
+/**
+ * 購物車訂單
+ */
 Route::prefix('/ordermanage')->group(function () {
     Route::get('/', [OrderManageController::class, 'index']);
     Route::get('/edit/{id}', [OrderManageController::class, 'edit']);
     Route::post('/update/{id}', [OrderManageController::class, 'update']);
 });
 
+/**
+ * 其他商品相關路由
+ */
+
+// 商品回傳首頁
+Route::get('/', [HomepageController::class, 'eightcard']);
+
+//商品詳情
+Route::get('/product/productinfo/{id}', [
+    ProductController::class,
+    'productinfo',
+]);
+//商品新增至購物車
+Route::post('/add_to_cart', [ShoppingCarController::class, 'add_cart']);
+
 // 刪除按鈕
 Route::post('/deleteList/{id}', [ShoppingCarController::class, 'deleteList']);
 
-// 金流
+
+/**
+ * 第三方金流
+ */
 Route::get('/creditcard/{id}', [OrderController::class, 'creditcard']);
 
 //callback 處理訂單狀態
 Route::post('/callback', [OrderContorller::class, 'callback']);
 
-// success 成功則返回任何網址
-// Route::get('/success', [OrderContorller::class, 'checkedout4']);
 
 
 /**
- * GOOGLE 登入與重新導向
+ * google 登入與重新導向
  */
 
 Route::get('/google/redirect', [SocialUserController::class, 'googleredirect'])->name('googlelogin');
 Route::get('/google/callback', [SocialUserController::class, 'googlecallback']);
 
+/**
+ * facebook 登入與重新導向
+ */
+
+Route::get('/facebook/redirect', [SocialUserController::class, 'facebookredirect'])->name('facebooklogin');
+Route::get('/facebook/callback', [SocialUserController::class, 'facebookcallback']);
+
+
+/**
+ * 暫時無用
+ */
+
+// // 將商品加入購物車
+// Route::post('/ShoppingCart', [ShoppingCarController::class, 'add_carts']);
+
+
+// success 成功則返回任何網址 (金流)
+// Route::get('/success', [OrderContorller::class, 'checkedout4']);
