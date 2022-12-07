@@ -16,7 +16,7 @@
             height: 500px;
         }
 
-        .swiper-slide {
+        .swiper-slide { 
             text-align: center;
             font-size: 18px;
             background: #fff;
