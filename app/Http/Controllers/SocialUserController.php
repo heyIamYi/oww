@@ -74,6 +74,7 @@ class SocialUserController extends Controller
 
     public function facebookcallback(Request $request)
     {
+        dd($request);
         $user_data = Socialite::driver('facebook')->user();
         // dd($request->all());
 

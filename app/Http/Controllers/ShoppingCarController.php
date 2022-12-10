@@ -47,9 +47,6 @@ class ShoppingCarController extends Controller
             return $result;
         }
 
-
-
-
         ShoppingCart::create([
             'product_id' => $request->product_id,
             'user_id' => Auth::user()->id,
@@ -72,8 +69,7 @@ class ShoppingCarController extends Controller
 
 
         // dd($ShoppingCart);
-        // // $newShoppingCart = $ShoppingCart->groupBy('product_id')->map->sum('quantity');
-        // dd($newShoppingCart);
+
 
         $total_price = 0;
         $total_qty = 0;

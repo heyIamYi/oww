@@ -12,9 +12,8 @@
 
     {{-- Facebook SDK --}}
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v15.0&appId=1157240718475524&autoLogAppEvents=1"
-        nonce="KHHps9pf"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v15.0"
+        nonce="1aChpXrc"></script>
 
 </head>
 
@@ -46,7 +45,10 @@
                     <div class="svg-box d-flex">
                         <div class="box-top d-flex" style="flex-direction: column">
                             <a href="{{ route('googlelogin') }}">google登入</a>
-                            <a href="{{ route('facebooklogin') }}">facebook登入</a>
+
+                            <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with"
+                                data-layout="rounded" onclick="FB_login();" data-auto-logout-link="true"
+                                data-use-continue-as="false"></div>
                         </div>
 
                     </div>
@@ -91,6 +93,45 @@
             </div>
         </div>
     </main>
+
+    <script>
+        //  FACEBOOK 登入
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '{{ env('FB_ID') }}',
+                cookie: true,
+                xfbml: true,
+                version: '{{ env('FB_VISION') }}'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        //  SDK登入
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // 登入按鈕
+        function FB_login() {
+            FB.getLoginStatus(function(res) {
+                if (res.authRespones) {
+                    console.log(res.authRespones);
+                    FB.api('/me', {
+                        field: 'id,name,email'
+                    })
+                }
+            })
+        };
+    </script>
 
 </body>
 
