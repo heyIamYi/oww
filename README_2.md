@@ -4,14 +4,18 @@
 
 新增storage/framework/cache/data（有的話就略過）
 storage/app/public新增manager資料夾（有的話就略過）
-
+--
 打指令
 composer update
+--
 php artisan cache:clear
+--
 php artisan storage:link
+--
 composer dump-autoload
+--
 php artisan key:generate 
-
+---
 
 本機部署（本機才開放777）
 chmod -R 777 storage
