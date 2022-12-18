@@ -119,6 +119,7 @@
         }(document, 'script', 'facebook-jssdk'));
 
 
+        console.log('2313');
 
         // 檢查登入
         function FB_login() {
@@ -133,7 +134,6 @@
             });
 
         }
-       
     </script>
 
 </body>
