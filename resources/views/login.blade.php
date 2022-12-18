@@ -41,16 +41,16 @@
                         </div>
                     </div>
                     <!-- SVG超連結 -->
-                    {{-- <div class="svg-box d-flex">
+                    <div class="svg-box d-flex">
                         <div class="box-top d-flex" style="flex-direction: column">
-                            <a href="{{ route('googlelogin') }}">google登入</a>
+                            {{-- <a href="{{ route('googlelogin') }}">google登入</a> --}}
 
                             <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with"
                                 data-layout="rounded" onclick="FB_login();" data-auto-logout-link="true"
                                 data-use-continue-as="false"></div>
                         </div>
+                    </div>
 
-                    </div> --}}
                     <!-- 使用其他方式登入 -->
                     <div class="box-bot d-flex">
                         {{-- <p>or use email your account </p> --}}
@@ -102,7 +102,6 @@
                 xfbml: true,
                 version: '{{ env('FB_VISION') }}'
             });
-
             FB.AppEvents.logPageView();
 
         };
@@ -119,17 +118,35 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
 
-        // 登入按鈕
+
+
+        // 檢查登入
         function FB_login() {
-            FB.getLoginStatus(function(res) {
-                if (res.authRespones) {
-                    console.log(res.authRespones);
-                    FB.api('/me', {
-                        field: 'id,name,email'
-                    })
+            FB.getLoginStatus(function(response) {
+                if (response.authRespones) {
+                    FB.api('/me', function(response) {
+                        console.log('2313');
+                        console.log(JSON.stringify(response));
+                    });
                 }
-            })
-        };
+                // statusChangeCallback(response);
+            });
+
+        }
+        // 登入按鈕
+        // function FB_login() {
+        //     FB.getLoginStatus(function(res) {
+        //         if (res.authRespones) {
+        //             console.log(res.authRespones);
+        //             FB.api('/me', {
+        //                 field: 'id,name,email'
+        //             }, (res) => {
+        //                 window.location.href = '{{ route('facebookcallback') }}?r=submit&id' + res.id +
+        //                     '&register_type=fb&email=' + res.email + '&name=' + res.name;
+        //             })
+        //         }
+        //     })
+        // };
     </script>
 
 </body>
