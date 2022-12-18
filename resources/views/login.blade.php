@@ -46,7 +46,7 @@
                             {{-- <a href="{{ route('googlelogin') }}">google登入</a> --}}
 
                             <a href="{{route('facebooklogin')}}" class="fb-login-button" data-width="" data-size="large" data-button-type="login_with"
-                                data-layout="rounded" 
+                                data-layout="rounded"
                                 data-use-continue-as="false"></a>
                         </div>
                     </div>
@@ -93,22 +93,7 @@
         </div>
     </main>
 
-    <script>
-        //  FACEBOOK 登入
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: '{{ env('FB_ID') }}',
-                cookie: true,
-                xfbml: true,
-                version: '{{ env('FB_VISION') }}'
-            });
-            FB.AppEvents.logPageView();
 
-        };
-
-
-
-    </script>
 
 </body>
 
