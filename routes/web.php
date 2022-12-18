@@ -171,6 +171,12 @@ Route::get('/creditcard/{id}', [OrderController::class, 'creditcard']);
 Route::post('/callback', [OrderContorller::class, 'callback']);
 
 
+/**
+ *  FACEBOOK SDK
+ */
+
+ Route::post('/facebooksdk',[SocialUserController::class,'facebookSDKLogin'])->name('FB.SDK.LOGIN');
+
 
 /**
  * google 登入與重新導向

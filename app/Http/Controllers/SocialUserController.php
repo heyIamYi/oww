@@ -12,7 +12,6 @@ use Laravel\Socialite\Facades\Socialite;
 class SocialUserController extends Controller
 {
 
-
     /**
      * Google 登入
      */
@@ -45,11 +44,11 @@ class SocialUserController extends Controller
         } else {
             $uuid = Str::uuid()->toString();
             $g_user = User::create([
-            'name' => $user_data->name,
-            'email'=> $user_data->email,
-            'password' => Hash::make($uuid . now()),
-            'power' =>1,
-            'ac_type' =>'email',
+                'name' => $user_data->name,
+                'email' => $user_data->email,
+                'password' => Hash::make($uuid . now()),
+                'power' => 1,
+                'ac_type' => 'email',
             ]);
             $g_user->user_type = 'google';
             $g_user->save();
@@ -97,11 +96,11 @@ class SocialUserController extends Controller
         } else {
             $uuid = Str::uuid()->toString();
             $f_user = User::create([
-            'name' => $user_data->name,
-            'email'=> $user_data->email,
-            'password' => Hash::make($uuid . now()),
-            'power' =>1,
-            'ac_type' =>'email',
+                'name' => $user_data->name,
+                'email' => $user_data->email,
+                'password' => Hash::make($uuid . now()),
+                'power' => 1,
+                'ac_type' => 'email',
             ]);
             $f_user->user_type = 'facebook';
             $f_user->save();
@@ -114,7 +113,14 @@ class SocialUserController extends Controller
 
     }
 
-     /**
+    /**
+     *  Facebook SDK登入
+     */
+    public function FacebookSDKLogin(Request $request){
+        dd($request);
+    }
+
+    /**
      * Github 登入
      */
 }

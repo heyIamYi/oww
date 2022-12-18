@@ -126,7 +126,7 @@
                     FB.api('/me', {
                         fields: 'id,name,email'
                     }, function(response) {
-                        console.log(response);
+                        window.location.href = 
                     });
                 }
             }, {
