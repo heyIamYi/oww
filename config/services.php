@@ -40,9 +40,9 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => env('facebook_CLIENT_ID'),
-        'client_secret' => env('facebook_CLIENT_SECRET'),
-        'redirect' => 'http://localhost:8000/facebook/callback',
+        'client_id' => env('FB_ID'),
+        'client_secret' => env('FB_VISION'),
+        'redirect' => 'https://oww-mall.site/facebook/callback',
     ],
 
 ];
