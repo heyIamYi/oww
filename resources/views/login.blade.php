@@ -45,7 +45,7 @@
                         <div class="box-top d-flex" style="flex-direction: column">
                             {{-- <a href="{{ route('googlelogin') }}">google登入</a> --}}
 
-                            <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with"
+                            <div class="fb-login-button" data-width="" scope="public_profile" data-size="large" data-button-type="login_with"
                                 data-layout="rounded" onclick="FB_login();" data-auto-logout-link="true"
                                 data-use-continue-as="false"></div>
                         </div>
