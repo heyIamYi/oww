@@ -68,7 +68,7 @@
 
             @guest
 
-                <ul class="nav  d-none d-md-flex col-3 justify-content-end align-content-center">
+                <ul class="nav  d-none d-md-flex col-5 justify-content-end align-content-center">
                     {{-- <li class="" >
                     <a class="nav-link" href="/banner">BANNER頁面</a>
                 </li>
