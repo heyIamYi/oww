@@ -42,7 +42,7 @@
                         <h3>數位方塊</h3>
                     </div>
                     <!-- SVG超連結 -->
-                    <div class="svg-box d-flex">
+                    {{-- <div class="svg-box d-flex">
                         <div class="box-top d-flex" style="flex-direction: column">
                             <a href="{{ route('googlelogin') }}">google登入</a>
 
@@ -51,7 +51,7 @@
                                 data-use-continue-as="false"></div>
                         </div>
 
-                    </div>
+                    </div> --}}
                     <!-- 使用其他方式登入 -->
                     <div class="box-bot d-flex">
                         <p>or use email your account </p>
