@@ -154,7 +154,7 @@
     <footer>
         <!-- 網頁其他資訊 -->
         <!-- 資訊1 -->
-        <div class="other-info1 d-flex align-items-center">
+        <div class="other-info1 mb-3 d-flex align-items-center">
             <div class="l-box">
                 <div class="logo rounded-0">
                     <img class="w-100 rounded-0" src="{{ asset('img/homepage-img/little.logo.png') }}"
