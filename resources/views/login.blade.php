@@ -123,12 +123,15 @@
         function FB_login() {
             FB.getLoginStatus(function(response) {
                 if (response.authRespones) {
-                    FB.api('/me', function(response) {
+                    FB.api('/me', {
+                        fields: 'id,name,email'
+                    }, function(response) {
                         console.log(response);
                     });
                 }
-            },{scope: 'public_profile,email'}
-            );
+            }, {
+                scope: 'public_profile,email'
+            });
 
         }
     </script>
