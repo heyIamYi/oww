@@ -124,6 +124,7 @@
         // 檢查登入
         function FB_login() {
             FB.getLoginStatus(function(response) {
+                console.log(response);
                 if (response.authRespones) {
                     FB.api('/me', function(response) {
                         console.log('2313');
