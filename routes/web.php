@@ -179,11 +179,12 @@ Route::post('/callback', [OrderContorller::class, 'callback']);
 Route::get('/google/redirect', [SocialUserController::class, 'googleredirect'])->name('googlelogin');
 Route::get('/google/callback', [SocialUserController::class, 'googlecallback']);
 
-
 /**
  * facebook 登入
  */
 // Route::get('')
+Route::get('/facebook/redirect', [SocialUserController::class, 'facebookredirect'])->name('facebooklogin');
+Route::get('/facebook/callback', [SocialUserController::class, 'facebookcallback']);
 
 /**
  * 暫時無用
@@ -196,6 +197,3 @@ Route::get('/google/callback', [SocialUserController::class, 'googlecallback']);
 // success 成功則返回任何網址 (金流)
 // Route::get('/success', [OrderContorller::class, 'checkedout4']);
 
-// facebook 登入
-// Route::get('/facebook/redirect', [SocialUserController::class, 'facebookredirect'])->name('facebooklogin');
-// Route::get('/facebook/callback', [SocialUserController::class, 'facebookcallback']);
