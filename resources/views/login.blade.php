@@ -133,20 +133,7 @@
             });
 
         }
-        // 登入按鈕
-        // function FB_login() {
-        //     FB.getLoginStatus(function(res) {
-        //         if (res.authRespones) {
-        //             console.log(res.authRespones);
-        //             FB.api('/me', {
-        //                 field: 'id,name,email'
-        //             }, (res) => {
-        //                 window.location.href = '{{ route('facebookcallback') }}?r=submit&id' + res.id +
-        //                     '&register_type=fb&email=' + res.email + '&name=' + res.name;
-        //             })
-        //         }
-        //     })
-        // };
+       
     </script>
 
 </body>
