@@ -36,10 +36,9 @@
                 <div class="right-box d-flex">
                     <!-- LOGO -->
                     <div class="logo-box d-flex">
-                        <div class="logo">
-                            <img src="./img/login-page/logo.png" alt="">
+                        <div class="logo w-auto">
+                            <img class="w-100" src="./img/login-page/logo.png" alt="">
                         </div>
-                        <h3>數位方塊</h3>
                     </div>
                     <!-- SVG超連結 -->
                     {{-- <div class="svg-box d-flex">
@@ -54,7 +53,7 @@
                     </div> --}}
                     <!-- 使用其他方式登入 -->
                     <div class="box-bot d-flex">
-                        <p>or use email your account </p>
+                        {{-- <p>or use email your account </p> --}}
                     </div>
                     <!-- 登入表單 -->
                     <div class="login-form d-flex">
