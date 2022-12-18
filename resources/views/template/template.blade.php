@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <nav>
+    <nav class="d-flex justify-content-center">
         <!-- logo -->
         <div class="row container-xxl m-0 d-flex align-items-center justify-content-lg-between ">
             <div class="logo p-0 m-0 col-5">
