@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $img_opacity
  * @property integer $weight
  */
-class banner extends Model
+class Banner extends Model
 {
 
     protected $table ='banners';
