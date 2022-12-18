@@ -45,9 +45,9 @@
                         <div class="box-top d-flex" style="flex-direction: column">
                             {{-- <a href="{{ route('googlelogin') }}">google登入</a> --}}
 
-                            <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with"
-                                data-layout="rounded" onclick="FB_login();" data-auto-logout-link="true"
-                                data-use-continue-as="false"></div>
+                            <a href="{{route('facebooklogin')}}" class="fb-login-button" data-width="" data-size="large" data-button-type="login_with"
+                                data-layout="rounded" data-auto-logout-link="true"
+                                data-use-continue-as="false"></a>
                         </div>
                     </div>
 
@@ -106,34 +106,8 @@
 
         };
 
-        //  SDK登入
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
 
 
-        // 檢查登入
-        function FB_login() {
-            FB.getLoginStatus(function(response) {
-                if (response.authRespones) {
-                    FB.api('/me', {
-                        fields: 'id,name,email'
-                    }, function(response) {
-                        window.location.href = '{{route('FB.SDK.LOGIN')}}?r=submit&id=' + response.id
-                    });
-                }
-            }, {
-                scope: 'public_profile,email'
-            });
-
-        }
     </script>
 
 </body>

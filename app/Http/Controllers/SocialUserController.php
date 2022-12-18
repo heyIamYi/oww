@@ -73,7 +73,7 @@ class SocialUserController extends Controller
 
     public function facebookcallback(Request $request)
     {
-        dd($request);
+        // dd($request);
         $user_data = Socialite::driver('facebook')->user();
         // dd($request->all());
 
@@ -111,13 +111,6 @@ class SocialUserController extends Controller
 
         }
 
-    }
-
-    /**
-     *  Facebook SDK登入
-     */
-    public function FacebookSDKLogin(Request $request){
-        dd($request);
     }
 
     /**

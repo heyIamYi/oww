@@ -172,13 +172,6 @@ Route::post('/callback', [OrderContorller::class, 'callback']);
 
 
 /**
- *  FACEBOOK SDK
- */
-
- Route::post('/facebooksdk',[SocialUserController::class,'facebookSDKLogin'])->name('FB.SDK.LOGIN');
-
-
-/**
  * google 登入與重新導向
  */
 
@@ -188,8 +181,8 @@ Route::post('/callback', [OrderContorller::class, 'callback']);
 /**
  * facebook 登入
  */
-// Route::get('/facebook/redirect', [SocialUserController::class, 'facebookredirect'])->name('facebooklogin');
-// Route::get('/facebook/callback', [SocialUserController::class, 'facebookcallback']);
+Route::get('/facebook/redirect', [SocialUserController::class, 'facebookredirect'])->name('facebooklogin');
+Route::get('/facebook/callback', [SocialUserController::class, 'facebookcallback']);
 
 /**
  * 暫時無用
