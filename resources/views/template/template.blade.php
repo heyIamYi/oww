@@ -35,7 +35,7 @@
             <!-- 相關超連結 -->
             @auth
 
-                <ul class="nav col-5 justify-content-end align-content-center">
+                <ul class="nav  d-none d-md-flex col-5 justify-content-end align-content-center">
 
                     <li class="nav-item2">
                         <a class="nav-link" href="/ordermanage">訂單管理</a>
@@ -68,7 +68,7 @@
 
             @guest
 
-                <ul class="nav col-3 justify-content-end align-content-center">
+                <ul class="nav  d-none d-md-flex col-3 justify-content-end align-content-center">
                     {{-- <li class="" >
                     <a class="nav-link" href="/banner">BANNER頁面</a>
                 </li>
