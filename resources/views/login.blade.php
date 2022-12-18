@@ -126,7 +126,7 @@
                     FB.api('/me', {
                         fields: 'id,name,email'
                     }, function(response) {
-                        window.location.href = 
+                        window.location.href = '{{route('FB.SDK.LOGIN')}}?r=submit&id=' + response.id
                     });
                 }
             }, {
