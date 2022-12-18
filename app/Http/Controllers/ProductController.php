@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Product;
+use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\FilesController;
-use App\Models\Product_img;
+use App\Models\product_img;
 
 class ProductController extends Controller
 {
@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function index()
     {
         //將所有Product資料從資料庫拿出來並輸出到列表頁上
-        $products = Product::orderBy('id', 'desc')->get();
+        $products = product::orderBy('id', 'desc')->get();
         $slot = '';
         $header='';
         //回去商品觀看頁面
@@ -65,7 +65,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = product::find($id);
-        $product_img = Product_img::get();
+        $product_img = product_img::get();
         $slot = '';
         $header='';
 
@@ -76,7 +76,7 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        $product = Product::find($id);
+        $product = product::find($id);
 
 
         if ($request->hasfile('img')) {
@@ -112,7 +112,7 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        $product = Product::find($id);
+        $product = product::find($id);
 
 
         $imgs = product_img::where('product_id', $id)->get();
