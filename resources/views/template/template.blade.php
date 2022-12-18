@@ -26,7 +26,7 @@
 <body>
     <nav>
         <!-- logo -->
-        <div class="row container-xxl d-flex align-items-center justify-content-lg-between ">
+        <div class="row container-xxl m-0 d-flex align-items-center justify-content-lg-between ">
             <div class="logo p-0 m-0 col-5">
                 <a class=" " href="/">
                     <img class="w-100" src="{{ asset('img/homepage-img/little.logo.png') }}" alt="logo">
@@ -35,7 +35,7 @@
             <!-- 相關超連結 -->
             @auth
 
-                <ul class="nav col-3 justify-content-end align-content-center">
+                <ul class="nav col-5 justify-content-end align-content-center">
 
                     <li class="nav-item2">
                         <a class="nav-link" href="/ordermanage">訂單管理</a>
